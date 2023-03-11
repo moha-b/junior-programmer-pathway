@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float turnSpeed = 50f;
     private float horizontalInput;
     private float forwardInput;
+    public string inputID;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private void Movements()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        forwardInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        forwardInput = Input.GetAxis("Vertical" + inputID);
         // Make car move forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         // Make car rtotate right and left
